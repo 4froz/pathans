@@ -1,0 +1,19 @@
+{
+  "files": {
+    "main.css": "/Pathans-Coture/static/css/main.73190a29.css",
+    "main.js": "/Pathans-Coture/static/js/main.19bc738b.js",
+    "static/media/Recoleta-RegularDEMO.otf": "/Pathans-Coture/static/media/Recoleta-RegularDEMO.fd9bfd35d1085b5c6511.otf",
+    "static/media/Recoleta-Bold.ttf": "/Pathans-Coture/static/media/Recoleta-Bold.1096ad6bcb7a02a3223f.ttf",
+    "static/media/slick.svg": "/Pathans-Coture/static/media/slick.2630a3e3eab21c607e21.svg",
+    "static/media/slick.eot": "/Pathans-Coture/static/media/slick.a4e97f5a2a64f0ab1323.eot",
+    "static/media/slick.ttf": "/Pathans-Coture/static/media/slick.c94f7671dcc99dce43e2.ttf",
+    "static/media/slick.woff": "/Pathans-Coture/static/media/slick.295183786cd8a1389865.woff",
+    "index.html": "/Pathans-Coture/index.html",
+    "main.73190a29.css.map": "/Pathans-Coture/static/css/main.73190a29.css.map",
+    "main.19bc738b.js.map": "/Pathans-Coture/static/js/main.19bc738b.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.73190a29.css",
+    "static/js/main.19bc738b.js"
+  ]
+}
