@@ -55,21 +55,21 @@ const MenuModal = ({ loginModal, setLoginModal }) => {
               setOpen(false);
               setTimeout(() => {
                 setLoginModal(false);
-              }, 150);
+              }, 400);
             }}
             className="font-medium text-white cursor-pointer text-xl"
           >
             x
           </span>
           <h1 className="md:text-xl text-white text-md uppercase font-bold font-[MyFont] text-[#000]">
-            Pathan's Coture
+            Pathan's Couture
           </h1>
           <span
             onClick={() => {
               setOpen(false);
               setTimeout(() => {
                 setLoginModal(false);
-              }, 150);
+              }, 400);
             }}
             className="font-medium text-sm underline cursor-pointer"
           >
@@ -106,9 +106,9 @@ const MenuModal = ({ loginModal, setLoginModal }) => {
           setOpen(false);
           setTimeout(() => {
             setLoginModal(false);
-          }, 150);
+          }, 400);
         }}
-        className={`xl:w-[70%] lg:w-[60%] sm:w-[50%] w-[10%]  animate-login ${
+        className={`xl:w-[70%] lg:w-[60%] sm:w-[50%] w-[10%] animate-fadeIn ${
           !open && "animate-loginClose"
         } h-full flex justify-end items-start`}
       ></div>
