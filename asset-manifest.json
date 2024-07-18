@@ -1,19 +1,19 @@
 {
   "files": {
-    "main.css": "/Pathans-Coture/static/css/main.8a9fec40.css",
-    "main.js": "/Pathans-Coture/static/js/main.0fdad6be.js",
-    "static/media/Recoleta-RegularDEMO.otf": "/Pathans-Coture/static/media/Recoleta-RegularDEMO.fd9bfd35d1085b5c6511.otf",
-    "static/media/Recoleta-Bold.ttf": "/Pathans-Coture/static/media/Recoleta-Bold.1096ad6bcb7a02a3223f.ttf",
-    "static/media/slick.svg": "/Pathans-Coture/static/media/slick.2630a3e3eab21c607e21.svg",
-    "static/media/slick.eot": "/Pathans-Coture/static/media/slick.a4e97f5a2a64f0ab1323.eot",
-    "static/media/slick.ttf": "/Pathans-Coture/static/media/slick.c94f7671dcc99dce43e2.ttf",
-    "static/media/slick.woff": "/Pathans-Coture/static/media/slick.295183786cd8a1389865.woff",
-    "index.html": "/Pathans-Coture/index.html",
-    "main.8a9fec40.css.map": "/Pathans-Coture/static/css/main.8a9fec40.css.map",
-    "main.0fdad6be.js.map": "/Pathans-Coture/static/js/main.0fdad6be.js.map"
+    "main.css": "/pathans/static/css/main.baa25aa8.css",
+    "main.js": "/pathans/static/js/main.0fdad6be.js",
+    "static/media/Recoleta-RegularDEMO.otf": "/pathans/static/media/Recoleta-RegularDEMO.fd9bfd35d1085b5c6511.otf",
+    "static/media/Recoleta-Bold.ttf": "/pathans/static/media/Recoleta-Bold.1096ad6bcb7a02a3223f.ttf",
+    "static/media/slick.svg": "/pathans/static/media/slick.2630a3e3eab21c607e21.svg",
+    "static/media/slick.eot": "/pathans/static/media/slick.a4e97f5a2a64f0ab1323.eot",
+    "static/media/slick.ttf": "/pathans/static/media/slick.c94f7671dcc99dce43e2.ttf",
+    "static/media/slick.woff": "/pathans/static/media/slick.295183786cd8a1389865.woff",
+    "index.html": "/pathans/index.html",
+    "main.baa25aa8.css.map": "/pathans/static/css/main.baa25aa8.css.map",
+    "main.0fdad6be.js.map": "/pathans/static/js/main.0fdad6be.js.map"
   },
   "entrypoints": [
-    "static/css/main.8a9fec40.css",
+    "static/css/main.baa25aa8.css",
     "static/js/main.0fdad6be.js"
   ]
 }
