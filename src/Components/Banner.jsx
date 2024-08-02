@@ -34,7 +34,7 @@ const ImageSlider = () => {
               <img
                 src={src}
                 alt={`Slide ${index}`}
-                className="h-[550px]  object-cover"
+                className="h-[550px] bg-gray-100  object-cover"
                 style={{ width: "100%", outline: "none" }}
               />
             </div>
@@ -48,7 +48,7 @@ const ImageSlider = () => {
               <img
                 src={src}
                 alt={`Slide ${index}`}
-                className="h-[330px]  object-cover"
+                className="h-[330px] bg-gray-100 object-cover"
                 style={{ width: "100%", outline: "none" }}
               />
             </div>

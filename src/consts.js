@@ -1,0 +1,1 @@
+export const SERVER = "https://pathans-server-ten.vercel.app/"

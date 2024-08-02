@@ -3,6 +3,9 @@ import Modal from "react-modal";
 import { useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
 import { closeLoginModal } from "../../Redux/modalSlice";
+import axios from "axios";
+import { login } from "../../Redux/userSlice";
+import { SERVER } from "../../consts";
 
 const LoginModal = ({ loginModal, setLoginModal }) => {
   const customStyles = {
@@ -24,13 +27,42 @@ const LoginModal = ({ loginModal, setLoginModal }) => {
     overlay: { zIndex: 2000, background: "rgba(0,0,0,.5)" },
   };
   const [open, setOpen] = useState(true);
+  const [loading, setloading] = useState(false);
   const dispatch = useDispatch();
-  const [name, setName] = useState("");
-  const [number, setNumber] = useState("");
+  const [name, setName] = useState("afroz");
+  const [number, setNumber] = useState("7972905284");
 
   const verifyPhoneNumber = (e) => {
     e.preventDefault();
     // Add your phone number verification logic here
+  };
+
+  const loginUser = async () => {
+    try {
+      setloading(true);
+      const response = await axios.post(
+        `${SERVER}api/users/login`,
+        {
+          name,
+          number,
+        }
+      );
+      const { data } = response;
+      setOpen(false);
+      setTimeout(() => {
+        dispatch(closeLoginModal());
+      }, 300);
+      console.log("iiiiii"+data.name);
+
+      dispatch(login( data ));
+      localStorage.setItem("userInfo", JSON.stringify(data));
+
+      setloading(false);
+    } catch (error) {
+      console.error("Error logging in:", error);
+      // alert(error);
+      setloading(false);
+    }
   };
 
   useEffect(() => {
@@ -102,17 +134,19 @@ const LoginModal = ({ loginModal, setLoginModal }) => {
                   type="tel"
                   required
                   maxLength={10}
+                  value={number}
                   onChange={(e) => setNumber(e.target.value)}
                   className="flex focus:outline-none bg-gray-50 pr-2 w-full items-center border border-gray-200 p-2.5"
                   placeholder="Enter Your Mobile Number"
                 />
               </div>
               <button
-                disabled={!name || number.length !== 10}
+                onClick={() => loginUser()}
+                disabled={!name || number.length < 10 || loading}
                 type="submit"
-                className="p-3 mt-8 rounded-md disabled:text-white w-full self-start bg-stone-800 text-lg font-semibold text-black"
+                className="p-3 mt-8 rounded-md w-full self-start bg-stone-800 text-lg font-semibold text-white"
               >
-                Confirm
+                {loading ? "Loading" : "Confirm"}
               </button>
             </form>
             <div className="flex items-center flex-row  mt-10 ">

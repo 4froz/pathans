@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import MenuModal from "./Modals/Menu";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import LoginModal from "./Modals/LoginModal";
 import { useDispatch, useSelector } from "react-redux";
 import { openLoginModal } from "../Redux/modalSlice";
@@ -12,31 +12,39 @@ const Header = () => {
   const [menuModal, setMenuModal] = useState(false);
   const [loginModal, setloginModal] = useState(false);
   const isOpen = useSelector((state) => state.modal.loginModal);
-  console.log('====================================');
-  console.log(location.pathname);
-  console.log('====================================');
- const dispatch = useDispatch();
+  const dispatch = useDispatch();
   useEffect(() => {
     const onScroll = () => setOffset(window.scrollY);
-
+    
     // Add the event listener
     window.addEventListener("scroll", onScroll, { passive: true });
-
+    
     // Clean up code
     return () => {
       window.removeEventListener("scroll", onScroll);
     };
   }, []);
-
+  
+  const userLogin = useSelector((state) => state.userLogin);
+  const { userInfo } = userLogin;
+  const navigate = useNavigate();
+  
+  console.log(userInfo);
   return (
     <>
-      <div className={`bg-black ${location.pathname === '/buynow' && 'hidden'} py-2 flex flex-row justify-center`}>
+      <div
+        className={`bg-black ${
+          location.pathname === "/buynow" && "hidden"
+        } py-2 flex flex-row justify-center`}
+      >
         <p className="text-white text-sm">
           New Arrivals Festive Collection 2024
         </p>
       </div>
       <div
-        className={`flex bg-[#EFEFED] ${location.pathname === '/buynow' && 'hidden'} border-b-[1.5px] p-4 py-4 sm:px-6  flex-row z-50 top-0 sticky w-full  items-center justify-between`}
+        className={`flex bg-[#EFEFED] ${
+          location.pathname === "/buynow" && "hidden"
+        } border-b-[1.5px] p-4 py-4 sm:px-6  flex-row z-50 top-0 sticky w-full  items-center justify-between`}
       >
         <div className="flex flex-row space-x-5 md:space-x-6 items-center">
           <img
@@ -67,7 +75,9 @@ const Header = () => {
         </Link>
         <div className="flex flex-row space-x-5 md:space-x-6 items-center">
           <img
-            onClick={() => dispatch(openLoginModal())}
+            onClick={() =>
+              userInfo ? navigate("/profile") : dispatch(openLoginModal())
+            }
             src="data:image/svg+xml,%3Csvg%20class%3D%22icon%20icon-user%22%20aria-hidden%3D%22true%22%20focusable%3D%22false%22%20role%3D%22presentation%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2048%2048%22%20fill%3D%22none%22%3E%0A%09%3Cpath%20fill-rule%3D%22evenodd%22%20clip-rule%3D%22evenodd%22%20d%3D%22M24%2021.8694C28.9706%2021.8694%2033%2017.8399%2033%2012.8694C33%207.89882%2028.9706%203.86938%2024%203.86938C19.0294%203.86938%2015%207.89882%2015%2012.8694C15%2017.8399%2019.0294%2021.8694%2024%2021.8694ZM24%2023.8694C30.0751%2023.8694%2035%2018.9445%2035%2012.8694C35%206.79425%2030.0751%201.86938%2024%201.86938C17.9249%201.86938%2013%206.79425%2013%2012.8694C13%2018.9445%2017.9249%2023.8694%2024%2023.8694Z%22%20fill%3D%22currentColor%22%3E%3C%2Fpath%3E%0A%09%3Cpath%20fill-rule%3D%22evenodd%22%20clip-rule%3D%22evenodd%22%20d%3D%22M42%2045.9117V45.9117C42%2045.9605%2041.9603%2046%2041.9114%2046H6.0886C6.03972%2046%206%2045.9605%206%2045.9117V45.9117C6%2036.0277%2014.0505%2028%2024%2028C33.9495%2028%2042%2036.0277%2042%2045.9117ZM42.8956%2048V48C43.4615%2048%2043.9394%2047.5727%2043.9702%2047.0076C43.99%2046.6448%2044%2046.2794%2044%2045.9117C44%2034.9148%2035.0457%2026%2024%2026C12.9543%2026%204%2034.9148%204%2045.9117C4%2046.2794%204.01001%2046.6447%204.02978%2047.0075C4.06057%2047.5727%204.53848%2048%205.10443%2048V48H6.1211H41.8789H42.8956Z%22%20fill%3D%22currentColor%22%3E%3C%2Fpath%3E%0A%3C%2Fsvg%3E"
             alt=""
             className="w-[20px] cursor-pointer object-fill h-[20px]"

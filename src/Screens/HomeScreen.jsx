@@ -2,8 +2,11 @@ import React from "react";
 import Header from "../Components/Header";
 import ImageSlider from "../Components/Banner";
 import JustIn from "../Sections/Home/JustIn";
+import SuccessModal from "../Components/Modals/AddAddressModal";
+import { useSelector } from "react-redux";
 
 const HomeScreen = () => {
+  const isOpen = useSelector((state) => state.modal.succesModal);
   return (
     <div className="flex bg-[#fff] flex-col overflow-hidden">
       <ImageSlider />
@@ -91,6 +94,7 @@ const HomeScreen = () => {
           />
         </div>
       </div>
+      <SuccessModal addressModal={isOpen.visible} />
     </div>
   );
 };

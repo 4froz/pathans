@@ -55,7 +55,7 @@ const MenuModal = ({ loginModal, setLoginModal }) => {
               setOpen(false);
               setTimeout(() => {
                 setLoginModal(false);
-              }, 400);
+              }, 300);
             }}
             className="font-medium text-white cursor-pointer text-xl"
           >
@@ -69,7 +69,7 @@ const MenuModal = ({ loginModal, setLoginModal }) => {
               setOpen(false);
               setTimeout(() => {
                 setLoginModal(false);
-              }, 400);
+              }, 300);
             }}
             className="font-medium text-sm underline cursor-pointer"
           >
@@ -106,7 +106,7 @@ const MenuModal = ({ loginModal, setLoginModal }) => {
           setOpen(false);
           setTimeout(() => {
             setLoginModal(false);
-          }, 400);
+          }, 300);
         }}
         className={`xl:w-[70%] lg:w-[60%] sm:w-[50%] w-[10%] animate-fadeIn ${
           !open && "animate-loginClose"
