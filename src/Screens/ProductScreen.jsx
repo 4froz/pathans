@@ -3,7 +3,7 @@ import Navigator from "../Components/Navigator";
 import { useNavigate, useParams } from "react-router";
 import { openLoginModal } from "../Redux/modalSlice";
 import { Link } from "react-router-dom";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import axios from "axios";
 import { addProduct } from "../Redux/buynowSlice";
 import { SERVER } from "../consts";
@@ -15,6 +15,8 @@ const ProductScreen = () => {
   const [loading, setloading] = useState(false);
   const [shine, setShine] = useState(false);
   const [products, setproducts] = useState({});
+  const userLogin = useSelector((state) => state.userLogin);
+  const { userInfo } = userLogin;
 
   const getProduct = async () => {
     try {
@@ -219,17 +221,18 @@ const ProductScreen = () => {
                 </span>
               </Link>
 
-              <Link
+              <div
                 onClick={() => {
                   if (userInfo) {
                     dispatch(
                       addProduct({
-                        name: products[0]?.name,
-                        price: products[0]?.price,
-                        image: products[0]?.image[0],
-                        _id: products[0]?._id,
+                        name: products?.name,
+                        price: products?.price,
+                        image: products?.image[0],
+                        _id: products?._id,
                       })
                     );
+                    navigate("/buynow");
                   } else {
                     dispatch(openLoginModal());
                   }
@@ -240,7 +243,7 @@ const ProductScreen = () => {
                 <span className="text-base text-white font-semibold">
                   Buy Now
                 </span>
-              </Link>
+              </div>
             </div>
           </div>
           <div className="flex lg:hidden flex-row fixed bottom-0 w-full px-2 py-2 bg-white space-x-2">
@@ -253,28 +256,29 @@ const ProductScreen = () => {
               </span>
             </Link>
 
-            <Link
-              to={`/buynow`}
+            <div
               onClick={() => {
                 if (userInfo) {
                   dispatch(
                     addProduct({
-                      name: products[0]?.name,
-                      price: products[0]?.price,
-                      image: products[0]?.image[0],
-                      _id: products[0]?._id,
+                      name: products?.name,
+                      price: products?.price,
+                      image: products?.image[0],
+                      _id: products?._id,
                     })
                   );
+                  navigate("/buynow");
                 } else {
                   dispatch(openLoginModal());
                 }
               }}
+              to={`/buynow`}
               className="p-3 justify-center flex shadow-md px-5 w-full disabled:bg-gray-200 disabled:text-white bg-[#10171F] cursor-pointer"
             >
               <span className="text-base text-white font-semibold">
                 Buy Now
               </span>
-            </Link>
+            </div>
           </div>
         </>
       )}

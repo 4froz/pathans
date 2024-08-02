@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { openLoginModal } from "../../Redux/modalSlice";
-import { Link, useParams } from "react-router-dom";
+import { Link, useNavigate, useParams } from "react-router-dom";
 import { addProduct } from "../../Redux/buynowSlice";
 import axios from "axios";
 import { SERVER } from "../../consts";
@@ -46,6 +46,8 @@ const JustIn = () => {
 
   const userLogin = useSelector((state) => state.userLogin);
   const { userInfo } = userLogin;
+
+  const navigate = useNavigate();
 
   return (
     <div className="flex flex-col">
@@ -180,7 +182,7 @@ const JustIn = () => {
                 </span>
               </Link>
 
-              <Link
+              <div
                 onClick={() => {
                   if (userInfo) {
                     dispatch(
@@ -191,6 +193,7 @@ const JustIn = () => {
                         _id: product[0]?._id,
                       })
                     );
+                    navigate("/buynow")
                   }else{
                     dispatch(openLoginModal())
                   }
@@ -201,7 +204,7 @@ const JustIn = () => {
                 <span className="text-base text-white font-semibold">
                   Buy Now
                 </span>
-              </Link>
+              </div>
             </div>
           </div>
         </>
