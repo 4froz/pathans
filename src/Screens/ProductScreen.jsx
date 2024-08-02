@@ -19,9 +19,7 @@ const ProductScreen = () => {
   const getProduct = async () => {
     try {
       setloading(true);
-      const response = await axios.get(
-        `${SERVER}api/products/${params.id}`
-      );
+      const response = await axios.get(`${SERVER}api/products/${params.id}`);
       const { data } = response;
       setproducts(data);
       setImages(data.image);
@@ -222,16 +220,20 @@ const ProductScreen = () => {
               </Link>
 
               <Link
-                onClick={() =>
-                  dispatch(
-                    addProduct({
-                      name: products.name,
-                      price: products.price,
-                      image: products.image[0],
-                      _id: products._id,
-                    })
-                  )
-                }
+                onClick={() => {
+                  if (userInfo) {
+                    dispatch(
+                      addProduct({
+                        name: products[0]?.name,
+                        price: products[0]?.price,
+                        image: products[0]?.image[0],
+                        _id: products[0]?._id,
+                      })
+                    );
+                  } else {
+                    dispatch(openLoginModal());
+                  }
+                }}
                 to={"/buynow"}
                 className="p-3 justify-center flex px-5 mt-3 shadow-md w-full disabled:bg-gray-200 disabled:text-white rounded-md bg-[#10171F] cursor-pointer"
               >
@@ -253,16 +255,20 @@ const ProductScreen = () => {
 
             <Link
               to={`/buynow`}
-              onClick={() =>
-                dispatch(
-                  addProduct({
-                    name: products.name,
-                    price: products.price,
-                    image: products.image[0],
-                    _id: products._id,
-                  })
-                )
-              }
+              onClick={() => {
+                if (userInfo) {
+                  dispatch(
+                    addProduct({
+                      name: products[0]?.name,
+                      price: products[0]?.price,
+                      image: products[0]?.image[0],
+                      _id: products[0]?._id,
+                    })
+                  );
+                } else {
+                  dispatch(openLoginModal());
+                }
+              }}
               className="p-3 justify-center flex shadow-md px-5 w-full disabled:bg-gray-200 disabled:text-white bg-[#10171F] cursor-pointer"
             >
               <span className="text-base text-white font-semibold">

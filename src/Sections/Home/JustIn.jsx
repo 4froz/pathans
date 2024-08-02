@@ -16,12 +16,10 @@ const JustIn = () => {
   const getHomeProduct = async () => {
     try {
       setloading(true);
-      const response = await axios.get(
-        `${SERVER}api/products/`
-      );
+      const response = await axios.get(`${SERVER}api/products/`);
       const { data } = response;
       setproducts(data);
-      const filterproduct = data?.filter(item => item.onHomepage);
+      const filterproduct = data?.filter((item) => item.onHomepage);
       setImages(filterproduct[0].image);
       setImage(filterproduct[0].image[0]);
       setloading(false);
@@ -36,7 +34,7 @@ const JustIn = () => {
     getHomeProduct();
   }, []);
 
-  const product = products?.filter(item => item.onHomepage);
+  const product = products?.filter((item) => item.onHomepage);
   console.log(product);
 
   const handleImageClick = (item) => {
@@ -45,6 +43,10 @@ const JustIn = () => {
     setTimeout(() => setShine(false), 500); // Remove the shine effect after 1 second
   };
   const dispatch = useDispatch();
+
+  const userLogin = useSelector((state) => state.userLogin);
+  const { userInfo } = userLogin;
+
   return (
     <div className="flex flex-col">
       {" "}
@@ -94,12 +96,11 @@ const JustIn = () => {
               </div>
             </div>
           </div>
-        
         </>
       ) : (
         <>
           <div className="w-full justify-between space-y-10 lg:space-y-0 lg:space-x-12 py-10 lg:py-20 px-4 sm:px-10 md:px-10 lg:px-20 xl:px-40 flex flex-col lg:flex-row p-10">
-          <div className="flex flex-col lg:flex-row lg:space-x-8 lg:w-[60%] w-full">
+            <div className="flex flex-col lg:flex-row lg:space-x-8 lg:w-[60%] w-full">
               <div className="hidden lg:flex flex-col mt-5 space-y-8">
                 {images.length > 1 && (
                   <>
@@ -180,12 +181,20 @@ const JustIn = () => {
               </Link>
 
               <Link
-                onClick={() => dispatch(addProduct({
-                  name:product[0]?.name,
-                  price:product[0]?.price,
-                  image:product[0]?.image[0],
-                  _id:product[0]?._id
-                }))}
+                onClick={() => {
+                  if (userInfo) {
+                    dispatch(
+                      addProduct({
+                        name: product[0]?.name,
+                        price: product[0]?.price,
+                        image: product[0]?.image[0],
+                        _id: product[0]?._id,
+                      })
+                    );
+                  }else{
+                    dispatch(openLoginModal())
+                  }
+                }}
                 to={"/buynow"}
                 className="p-3 justify-center flex px-5 mt-3 shadow-md w-full disabled:bg-gray-200 disabled:text-white rounded-md bg-[#10171F] cursor-pointer"
               >
@@ -195,7 +204,6 @@ const JustIn = () => {
               </Link>
             </div>
           </div>
-     
         </>
       )}
     </div>
