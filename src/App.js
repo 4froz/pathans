@@ -13,10 +13,10 @@ import BuyNowScreen from "./Screens/BuyNowScreen";
 
 const App = () => {
   return (
-    <div className="flex flex-col">
+    <div className="overflow-auto">
       <BrowserRouter>
-        <ScrollToTop>
           <Header />
+        <ScrollToTop>
           <Routes>
             <Route path="/" element={<HomeScreen />} />
             <Route path="/product/:id" element={<ProductScreen />} />
@@ -26,8 +26,8 @@ const App = () => {
             <Route path="/buynow" element={<BuyNowScreen />} />
             {/* Company */}
           </Routes>
-          <Footer />
         </ScrollToTop>
+          <Footer />
       </BrowserRouter>
     </div>
   );

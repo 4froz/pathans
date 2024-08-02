@@ -5,7 +5,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { addAdress } from "../Redux/addressSlice";
 import axios from "axios";
 import { opensuccesModal } from "../Redux/modalSlice";
-import { SERVER } from "../consts";
+import { COMPANY, SERVER } from "../consts";
 
 const order = {
   _id: "1234567890abcdef",
@@ -172,7 +172,7 @@ const BuyNowScreen = () => {
       currency: data.currency,
       amount: data.amount,
       order_id: data.id,
-      name: "Pathans Couture",
+      name: COMPANY,
       description: "Order delicious meat",
       image: "",
       handler: function (response) {

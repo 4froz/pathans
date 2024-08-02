@@ -4,7 +4,7 @@ import { openLoginModal } from "../../Redux/modalSlice";
 import { Link, useNavigate, useParams } from "react-router-dom";
 import { addProduct } from "../../Redux/buynowSlice";
 import axios from "axios";
-import { SERVER } from "../../consts";
+import { COMPANY, SERVER } from "../../consts";
 
 const JustIn = () => {
   const [images, setImages] = useState([]);
@@ -68,7 +68,7 @@ const JustIn = () => {
             </div>
             <div className="lg:w-[40%] self-start w-full flex flex-col justify-center items-start">
               <p className="text-sm font-medium bg-gray-100 animate-pulse text-gray-100 mb-3 uppercase">
-                Pathans Couture Admin
+                {COMPANY} Admin
               </p>
               <p className="md:text-4xl bg-gray-100 animate-pulse text-gray-100 font-[MyFont] capitalize text-2xl font-bold mb-3">
                 PEARL BEIGE KURTA SET
@@ -148,7 +148,7 @@ const JustIn = () => {
             </div>
             <div className="lg:w-[40%] self-start w-full flex flex-col justify-center items-start">
               <p className="text-sm font-medium mb-3 uppercase">
-                Pathans Couture Admin
+                {COMPANY} Admin
               </p>
               <p className="md:text-4xl font-[MyFont] capitalize text-2xl font-bold mb-3">
                 {product[0]?.name}

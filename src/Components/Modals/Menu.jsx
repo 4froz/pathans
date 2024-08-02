@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import Modal from "react-modal";
 import { Link } from "react-router-dom";
+import { COMPANY } from "../../consts";
 
 const MenuModal = ({ loginModal, setLoginModal }) => {
   const customStyles = {
@@ -62,7 +63,7 @@ const MenuModal = ({ loginModal, setLoginModal }) => {
             x
           </span>
           <h1 className="md:text-xl text-white text-md uppercase font-bold font-[MyFont] text-[#000]">
-            Pathan's Couture
+            {COMPANY}
           </h1>
           <span
             onClick={() => {

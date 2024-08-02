@@ -29,8 +29,8 @@ const LoginModal = ({ loginModal, setLoginModal }) => {
   const [open, setOpen] = useState(true);
   const [loading, setloading] = useState(false);
   const dispatch = useDispatch();
-  const [name, setName] = useState("afroz");
-  const [number, setNumber] = useState("7972905284");
+  const [name, setName] = useState("");
+  const [number, setNumber] = useState("");
 
   const verifyPhoneNumber = (e) => {
     e.preventDefault();
@@ -144,7 +144,7 @@ const LoginModal = ({ loginModal, setLoginModal }) => {
                 onClick={() => loginUser()}
                 disabled={!name || number.length < 10 || loading}
                 type="submit"
-                className="p-3 mt-8 rounded-md w-full self-start bg-stone-800 text-lg font-semibold text-white"
+                className="p-3 mt-8 rounded-md w-full self-start disabled:bg-gray-100 disabled:text-gray-500 bg-stone-800 text-lg font-semibold text-white"
               >
                 {loading ? "Loading" : "Confirm"}
               </button>

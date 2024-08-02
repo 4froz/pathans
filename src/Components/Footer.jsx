@@ -1,5 +1,6 @@
 import React from "react";
 import { useLocation } from "react-router";
+import { COMPANY } from "../consts";
 const Footer = () => {
   const location = useLocation()
   return (
@@ -48,7 +49,7 @@ const Footer = () => {
         </div>
       </div>
       <span className="text-sm px-9 lg:px-16 text-black">
-        Pathan's Couture &#x2022; © 2024 All Rights Reserved{" "}
+        {COMPANY} &#x2022; © 2024 All Rights Reserved{" "}
       </span>
     </div>
   );

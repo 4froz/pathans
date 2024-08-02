@@ -50,16 +50,16 @@ const ProfileScreen = () => {
         <Navigator to={"Profile"} />
       </div>
       <div className="flex items-start w-full  flex-col">
-        <div className="flex flex-col lg:flex-row  space-y-10 lg:space-y-0 w-full lg:space-x-6">
+        <div className="flex flex-col lg:flex-row mt-5 lg:mt-0 space-y-10 lg:space-y-0 w-full lg:space-x-6">
           <div className="flex items-start flex-col w-[90%] self-center lg:self-start lg:w-[25%] px-0 lg:p-0">
             {/* <h1 className="font-semibold text-2xl ">Account Details</h1> */}
 
             <div className="flex bg-[#F8FAFC] rounded-md w-full flex-col">
               <div className="flex  w-full flex-col space-y-8">
                 <div className="flex cursor-pointer rounded-md p-4 items-center space-x-2">
-                  <div className="p-2 bg-white rounded-full">
+                  <div className="p-0 bg-white rounded-full">
                     <img
-                      src="https://yt3.ggpht.com/PpOTYttfnMMlVkDXzT_9rRKRXcImu1WrjdZMRFWbFgzcm4dLgHN8GMcrt1vxyZD-89CWvoM=s88-c-k-c0x00ffffff-no-rj"
+                      src="https://media.istockphoto.com/id/1130884625/vector/user-member-vector-icon-for-ui-user-interface-or-profile-face-avatar-app-in-circle-design.jpg?s=612x612&w=0&k=20&c=1ky-gNHiS2iyLsUPQkxAtPBWH1BZt0PKBB1WBtxQJRE="
                       alt=""
                       className="w-12 rounded-full h-12"
                     />
@@ -115,7 +115,9 @@ const ProfileScreen = () => {
               <>
                 {loading ? (
                   <div className="w-full flex flex-col justify-center items-center h-[200px]">
-                    <span className="text-lg font-medium">Loading Orders...</span>
+                    <span className="text-lg font-medium">
+                      Loading Orders...
+                    </span>
                     <PulseLoader
                       color={"#000"}
                       loading={loading}
@@ -196,10 +198,9 @@ const ProfileScreen = () => {
                       {orders.map((order) => (
                         <div
                           key={order._id}
-                          onClick={() => navigate(`/order/${order._id}`)}
                           className="flex mt-5 flex-col items-start bg-[#F8FAFC] rounded-md p-5"
                         >
-                          <h1 className="text-lg font-medium mb-3">
+                          <h1 className="text-lg uppercase font-medium mb-3">
                             # {order._id.substr(0, 10)}
                           </h1>
                           <span className="text-md font-normal text-[#a6a6a6]">
@@ -230,6 +231,13 @@ const ProfileScreen = () => {
                           <div className="flex space-x-5 text-[#a6a6a6] text-md font-normal">
                             <span>Total : ₹{order.totalPrice}</span>
                           </div>
+
+                          <span
+                            onClick={() => navigate(`/order/${order._id}`)}
+                            className="text-base cursor-pointer mt-3 underline font-semibold text-black"
+                          >
+                            View Details
+                          </span>
                         </div>
                       ))}
                     </div>

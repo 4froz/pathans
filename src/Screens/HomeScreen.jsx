@@ -4,9 +4,12 @@ import ImageSlider from "../Components/Banner";
 import JustIn from "../Sections/Home/JustIn";
 import SuccessModal from "../Components/Modals/AddAddressModal";
 import { useSelector } from "react-redux";
+import { useNavigate } from "react-router";
 
 const HomeScreen = () => {
   const isOpen = useSelector((state) => state.modal.succesModal);
+  const navigate = useNavigate();
+
   return (
     <div className="flex bg-[#fff] flex-col overflow-hidden">
       <ImageSlider />
@@ -18,7 +21,7 @@ const HomeScreen = () => {
         </p>
 
         <div className="flex flex-col space-y-5 md:space-y-0 md:flex-row max-h-min  justify-between w-[100%] md:h-[600px]">
-          <div className="flex relative cursor-pointer w-full md:w-[49%] overflow-hidden rounded-md">
+          <div onClick={() => navigate("/shop")} className="flex relative cursor-pointer w-full md:w-[49%] overflow-hidden rounded-md">
             <img
               className="w-full h-auto object-cover hover:scale-105 duration-700"
               src="https://vagads.com/cdn/shop/files/1320x1480-08_1800x.jpg?v=1701763155"
@@ -33,7 +36,7 @@ const HomeScreen = () => {
             </div>
           </div>
           <div className="flex flex-col h-full space-y-5 w-full md:w-[49%]">
-            <div className="relative cursor-pointer flex w-full h-full overflow-hidden rounded-md">
+            <div onClick={() => navigate("/shop")} className="relative cursor-pointer flex w-full h-full overflow-hidden rounded-md">
               <img
                 className="w-full h-auto md:h-full  object-cover hover:scale-105 duration-700"
                 src="https://vagads.com/cdn/shop/files/Vagad-_Cover-2000x1000-06_1800x.jpg?v=1701763333"
@@ -47,7 +50,7 @@ const HomeScreen = () => {
                 </h1>
               </div>
             </div>
-            <div className="relative cursor-pointer flex w-full h-full  overflow-hidden rounded-md">
+            <div onClick={() => navigate("/shop")} className="relative cursor-pointer flex w-full h-full  overflow-hidden rounded-md">
               <img
                 className="w-full h-auto md:h-full object-cover hover:scale-105 duration-700"
                 src="https://vagads.com/cdn/shop/files/Vagad-_Cover-2000x1000-05_b6265350-21da-4490-a4f4-daa735ec71cc_1800x.jpg?v=1701763430"

@@ -5,6 +5,7 @@ import LoginModal from "./Modals/LoginModal";
 import { useDispatch, useSelector } from "react-redux";
 import { openLoginModal } from "../Redux/modalSlice";
 import { useLocation } from "react-router-dom";
+import { COMPANY } from "../consts";
 
 const Header = () => {
   const location = useLocation();
@@ -15,20 +16,20 @@ const Header = () => {
   const dispatch = useDispatch();
   useEffect(() => {
     const onScroll = () => setOffset(window.scrollY);
-    
+
     // Add the event listener
     window.addEventListener("scroll", onScroll, { passive: true });
-    
+
     // Clean up code
     return () => {
       window.removeEventListener("scroll", onScroll);
     };
   }, []);
-  
+
   const userLogin = useSelector((state) => state.userLogin);
   const { userInfo } = userLogin;
   const navigate = useNavigate();
-  
+
   console.log(userInfo);
   return (
     <>
@@ -44,7 +45,7 @@ const Header = () => {
       <div
         className={`flex bg-[#EFEFED] ${
           location.pathname === "/buynow" && "hidden"
-        } border-b-[1.5px] p-4 py-4 sm:px-6  flex-row z-50 top-0 sticky w-full  items-center justify-between`}
+        } border-b-[1.5px] p-4 py-4 sm:px-6  flex-row z-50  sticky top-0 w-full  items-center justify-between`}
       >
         <div className="flex flex-row space-x-5 md:space-x-6 items-center">
           <img
@@ -70,7 +71,7 @@ const Header = () => {
       /> */}
         <Link to={"/"}>
           <h1 className="md:text-xl cursor-pointer text-md uppercase font-bold font-[MyFont] text-[#000]">
-            Pathan's Couture
+            {COMPANY}
           </h1>
         </Link>
         <div className="flex flex-row space-x-5 md:space-x-6 items-center">
